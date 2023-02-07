@@ -1,0 +1,38 @@
+<databaseChangeLog
+       xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+		http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+		http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+    <changeSet id="02" author="taha">
+        <comment>Inserting Users</comment>
+        <insert tableName="user">
+            <column name="id" valueNumeric="1" />
+            <column name="firstname" value="firstnameuser1" />
+            <column name="lastname" value="lastnameuser1" />
+            <column name="address" value="addressuser1" />
+            <column name="phonenumber" value="phonenumberuser1" />
+        </insert>
+        <insert tableName="user">
+            <column name="id" valueNumeric="2" />
+            <column name="firstname" value="firstnameuser2" />
+            <column name="lastname" value="lastnameuser2" />
+            <column name="address" value="addressuser2" />
+            <column name="phonenumber" value="phonenumberuser2" />
+        </insert>
+        <insert tableName="user">
+            <column name="id" valueNumeric="3" />
+            <column name="firstname" value="firstnameuser3" />
+            <column name="lastname" value="lastnameuser3" />
+            <column name="address" value="addressuser3" />
+            <column name="phonenumber" value="phonenumberuser3" />
+        </insert>
+
+    </changeSet>
+
+
+</databaseChangeLog>

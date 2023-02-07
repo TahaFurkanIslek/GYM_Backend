@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: db.changelog/create-models-schema.xml
+  - include:
+      file: db.changelog/insert-data-user.xml
