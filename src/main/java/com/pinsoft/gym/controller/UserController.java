@@ -1,5 +1,6 @@
 package com.pinsoft.gym.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.pinsoft.gym.dto.UserDto;
 import com.pinsoft.gym.model.User;
-import com.pinsoft.gym.service.UserService;
+import com.pinsoft.gym.service.UserServiceImpl;
 import com.pinsoft.gym.shared.GenericResponse;
 
 @RestController
@@ -22,15 +24,25 @@ import com.pinsoft.gym.shared.GenericResponse;
 public class UserController {
 	
 	@Autowired
-	UserService userService;
+	UserServiceImpl userService;
 	
 	@GetMapping("/user/{id}")
 	User getById(@PathVariable int id) {
 		return this.userService.getById(id);
 	}
 	@GetMapping("/user/getall")
-	List<User> getAll(){
-		return this.userService.getAll();
+	List<UserDto> getAll(){
+		List<User> userList=this.userService.getAll();
+		List<UserDto> userDtoList=new ArrayList<UserDto>();
+		for (User user : userList) {
+			UserDto userDto=new UserDto();
+			userDto.setFirstName(user.getFirstName());
+			userDto.setLastName(user.getLastName());
+			userDto.setAddress(user.getAddress());
+			userDto.setPhone(user.getPhone());
+			userDtoList.add(userDto);
+		}
+		return userDtoList;
 	}
 	@PostMapping("/user/add")
 	GenericResponse save(@RequestBody User user) {
