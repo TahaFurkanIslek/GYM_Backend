@@ -20,23 +20,23 @@ public class MealListController {
 	@Autowired
 	MealListServiceImpl mealListService;
 	
-	@PostMapping("meallist/add")
+	@PostMapping("/meallist/add")
 	GenericResponse save(@RequestBody MealList mealList) {
 		this.mealListService.save(mealList);
 		return new GenericResponse("Öğün Listesi Eklendi");
 	}
 	
-	@GetMapping("meallist/getall")
+	@GetMapping("/meallist/getall")
 	List<MealList> getAll(){
 		return this.mealListService.getAll();
 	}
 	
-	@GetMapping("meallist/getusersmeallist")
+	@GetMapping("/meallist/getusersmeallist")
 	List<MealList> getUsersMealList(int mealId,int userId){
 		return this.mealListService.getUsersMealList(mealId, userId);
 	}
 	
-	@GetMapping("meallist/getusersmeallistdetails")
+	@GetMapping("/meallist/getusersmeallistdetails")
 	UserMealInfoDto getUsersMealListDetails(int mealId, int userId) {
 		return this.mealListService.getUsersMealListDetails(mealId, userId);
 	}

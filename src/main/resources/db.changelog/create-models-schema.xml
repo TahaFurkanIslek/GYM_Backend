@@ -146,6 +146,17 @@
                        
 
         </changeSet>
+        <changeSet author="Taha" id="04">
+   			 <preConditions onFail="HALT">
+        			<tableExists schemaName="public" tableName="user"/>
+    		 </preConditions>
+    		<addColumn schemaName="public" tableName="user">
+        		<column name="username" type="varchar(255)"/>
+    		</addColumn>
+    		<addColumn schemaName="public" tableName="user">
+        		<column name="password" type="varchar(255)"/>
+    		</addColumn>
+  		</changeSet>
 
 
 
